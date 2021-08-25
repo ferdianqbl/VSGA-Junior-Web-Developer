@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     $pass = isset($_POST['pass']) ? $_POST['pass'] : '';
     $qry = mysqli_query(
         $db,
-        "SELECT * FROM t_admin WHERE username = '$user' AND password = '$pass'"
+        "SELECT * FROM t_admin WHERE username = '$user' AND pass = '$pass'"
     );
     $sesi = mysqli_num_rows($qry);
 
