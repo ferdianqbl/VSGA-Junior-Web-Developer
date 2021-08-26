@@ -1,7 +1,7 @@
 <?php
+session_start();
 include'koneksi.php';
 $tgl=date('Y-m-d');
-session_start();
 if(isset($_SESSION['sesi'])){
 ?>
 
@@ -87,7 +87,7 @@ if(isset($_SESSION['sesi'])){
              <div class="sidebar-heading">
                  Archieve
              </div>
- 
+
              <!-- Nav Item - Pages Collapse Menu -->
              <li class="nav-item">
                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -103,7 +103,7 @@ if(isset($_SESSION['sesi'])){
                          <a class="collapse-item" href="index.php?p=transaksi-pengembalian">Transaksi Pengembalian</a>
                      </div>
                  </div>
-             </li>           
+             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -183,14 +183,14 @@ if(isset($_SESSION['sesi'])){
     <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
-
 </html>
+
 <?php
 }
 else {
 	echo "<script>
 		alert('Anda Harus Login Dahulu!');
+		window.location = 'login.php';
 	</script>";
-	header('location:login.php');
 }
 ?>
