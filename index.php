@@ -39,7 +39,7 @@ if(isset($_SESSION['sesi'])){
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php?p=beranda">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -51,7 +51,7 @@ if(isset($_SESSION['sesi'])){
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="index.php?p=beranda">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Beranda</span></a>
             </li>
@@ -113,20 +113,19 @@ if(isset($_SESSION['sesi'])){
                 Others
             </div>
 
-            <!-- Nav Item - Charts -->
+            <!-- Nav Item -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php?p=transaksi-peminjaman">
+                <a class="nav-link" href="index.php?p=laporan">
                     <i class="fas fa-file"></i>
                     <span>Laporan Transaksi</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
+            <!-- Nav Item -->
             <li class="nav-item">
                 <a class="nav-link" href="logout.php">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span></a>
             </li>
-
         </ul>
 
                 <!-- End of Topbar -->
@@ -134,85 +133,37 @@ if(isset($_SESSION['sesi'])){
                 <!-- Begin Page Content -->
                 <div class="container-fluid"><br>
                     <h1>Hi, <?php echo$_SESSION['sesi']; ?>!</h1>
+                    <hr>
                     <!-- Content Row -->
                     <div class="row">
-
-                    <!-- Content Row -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h4 class="m-0 font-weight-bold text-primary">SISTEM INFORMASI PERPUSTAKAAN UMUM</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="img/undraw_posting_photo.svg" alt="...">
-                                    </div>
-                                    <p>SIPUS (Sistem Informasi Perpustakaan) adalah sebuah website yang dapat difungsikan untuk mempermudah pengelolaan informasi yang secara pesat 
-                                        menggantikan sistem konvensional menjadi digital dalam mengelola informasi Perpustakaan Umum.</p>
-                                </div>
+                    <?php
+                        $pages_dir='pages';
+                        if(!empty($_GET['p'])){
+                            $pages=scandir($pages_dir,0);
+                            unset($pages[0],$pages[1]);
+                            $p=$_GET['p'];
+                            if(in_array($p.'.php',$pages)){
+                                include($pages_dir.'/'.$p.'.php');
+                            }else{
+                                echo'Halaman Tidak Ditemukan';
+                            }
+                        }else{
+                            include($pages_dir.'/beranda.php');
+                        }
+                    ?>
+                    </div>
+                    <!-- Footer -->
+                    <footer class="sticky-footer bg-white">
+                        <div class="container my-auto">
+                            <div class="copyright text-center my-auto">
+                                <span>Copyright &copy; Sistem Informasi Perpustakaan 2021</span>
                             </div>
-
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h4 class="m-0 font-weight-bold text-primary">PENJELASAN MENU</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="text-center">
-                                    </div>
-                                    <p>Menu <b>MASTER DATA</b>, berisikan 2 sub menu diantaranya : </p> 
-                                            <ol>
-                                                <li>DATA ANGGOTA, berisikan data dan informasi keanggotaan perpustakaan</li>
-                                                <li>DATA BUKU, berisikan data dan informasi koleksi buku perpustakaan</li>
-                                            </ol>
-                                    <hr class="sidebar-divider">
-                                    <p>Menu <b>ARCHIEVE</b> berisikan 2 sub menu diantaranya : <p>
-                                        <ol>
-                                            <li>TRANSAKSI PEMINJAMAN, berisikan data dan informasi detail peminjaman buku perpustakaan</li>
-                                            <li>TRANSAKSI PENGEMBALIAN, berisikan data dan informasi detail pengembalian buku perpustakaan</li>
-                                        </ol>
-                                    <hr class="sidebar-divider">
-                                    <p>Menu <b>LAPORAN TRANSAKSI</b>, berisikan laporan transaksi perpustakaan<p>
-                                    <hr class="sidebar-divider">
-                                    <p>Menu <b>LOGOUT</b>, tombol untuk keluar dari halaman SIPUS<p>
-                                </div>
-                            </div>
-
                         </div>
-                    </div>
-
+                    </footer>
+                    <!-- End of Footer -->
                 </div>
-            <!-- End of Main Content -->
+                <!-- End of Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Sistem Informasi Perpustakaan 2021</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-<?php
-    $pages_dir='pages';
-    if(!empty($_GET['p'])){
-        $pages=scandir($pages_dir,0);
-        unset($pages[0],$pages[1]);
-        $p=$_GET['p'];
-        if(in_array($p.'.php',$pages)){
-            include($pages_dir.'/'.$p.'.php');
-        }else{
-            echo'Halaman Tidak Ditemukan';
-        }
-    }else{
-        include($pages_dir.'/index.php');
-    }
-?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
