@@ -2,8 +2,6 @@
 $id_buku = $_GET['id'];
 $query = mysqli_query($db, "SELECT * FROM t_buku WHERE  id_buku = '$id_buku'");
 $data = mysqli_fetch_array($query);
-
-
 ?>
 
 <div class="container-fluid">
