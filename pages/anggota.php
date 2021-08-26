@@ -20,7 +20,7 @@ include'Koneksi.php';
                         <th>Foto</th>
                         <th>Jenis Kelamin</th>
                         <th>Alamat</th>
-                        <th>Opsi</th>
+                        <th style="text-align: center;">Opsi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,7 +45,7 @@ include'Koneksi.php';
                         <td align="center"><?php echo "<img src='images/$foto' width='80' height='80' />";?></td>
                         <td><?=$data['jk'];?></td>
                         <td><?=$data['alamat'];?></td>
-                        <td>
+                        <td align="center">
                             <a target="_blank" href="pages/cetak-kartu.php?id=<?=$data['id_anggota'];?>" class="btn btn-sm btn-primary">Cetak Kartu</a>
                             <a href="index.php?p=anggota-edit&id=<?=$data['id_anggota'];?>" class="btn btn-sm btn-warning">Edit</a>
                             <a href="index.php?p=anggota-hapus&id=<?=$data['id_anggota'];?>" onclick="return confirm('Yakin Menghapus anggota?');" class="btn btn-sm btn-danger">Hapus</a>
