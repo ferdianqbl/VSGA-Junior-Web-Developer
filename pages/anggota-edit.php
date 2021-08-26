@@ -3,7 +3,7 @@ $id_anggota = $_GET['id'];
 $query = mysqli_query($db, "SELECT * FROM t_anggota WHERE  id_anggota = '$id_anggota'");
 $data = mysqli_fetch_array($query);
 if(empty($data['foto'])or($data['foto']=='-')){
-    $foto = "admin-no-photo.jpg";
+    $foto = "admin-no-photo.png";
 }else {
     $foto = $data['foto'];
 }
