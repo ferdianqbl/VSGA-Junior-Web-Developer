@@ -16,7 +16,7 @@ include'Koneksi.php';
                         <th>No</th>
                         <th>Nama Buku</th>
                         <th>Id Buku</th>
-                        <th>Opsi</th>
+                        <th style="text-align: center;">Opsi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,7 +34,7 @@ include'Koneksi.php';
                         <td><?=$no++;?></td>
                         <td><?=$data['nama_buku'];?></td>
                         <td><?=$data['id_buku'];?></td>
-                        <td>
+                        <td align="center">
                             <a href="index.php?p=buku-edit&id=<?=$data['id_buku'];?>" class="btn btn-sm btn-warning">Edit</a>
                             <a href="index.php?p=buku-hapus&id=<?=$data['id_buku'];?>" onclick="return confirm('Yakin Menghapus buku?');" class="btn btn-sm btn-danger">Hapus</a>
                         </td>
