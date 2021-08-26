@@ -41,7 +41,7 @@ if(isset($_SESSION['sesi'])){
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php?p=beranda">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-book-reader"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">SIPUS<sup>v.1</sup></div>
             </a>
