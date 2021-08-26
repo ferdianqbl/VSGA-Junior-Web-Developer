@@ -42,7 +42,7 @@ include'Koneksi.php';
                         <td><?=$no++;?></td>
                         <td><?=$data['nama'];?></td>
                         <td><?=$data['id_anggota'];?></td>
-                        <td align="center"><?php echo "<img src='images/$foto' width='80' height='80' />";?></td>
+                        <td align="center"><?php echo "<img src='images/$foto' width='80' height='75' />";?></td>
                         <td><?=$data['jk'];?></td>
                         <td><?=$data['alamat'];?></td>
                         <td align="center">
