@@ -24,7 +24,7 @@ include'koneksi.php';
                     <tbody>
                     
                         <?php 
-                            $query = mysqli_query($db,"SELECT * FROM (t_transaksi LEFT JOIN t_buku ON t_transaksi.id_buku = t_buku.id_buku) LEFT JOIN t_anggota ON t_anggota.id_anggota = t_transaksi.id_anggota");
+                            $query = mysqli_query($db,"SELECT * FROM (t_transaksi LEFT JOIN t_buku ON t_transaksi.id_buku = t_buku.id_buku) LEFT JOIN t_anggota ON t_anggota.id_anggota = t_transaksi.id_anggota WHERE tgl_kembali='0000-00-00'");
                             $data = mysqli_fetch_assoc($query);
                             if(mysqli_num_rows($query) >0) {
                                 $no = 1;
