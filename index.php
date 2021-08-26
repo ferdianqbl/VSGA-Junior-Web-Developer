@@ -51,7 +51,7 @@ if(isset($_SESSION['sesi'])){
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Beranda</span></a>
             </li>
@@ -74,8 +74,8 @@ if(isset($_SESSION['sesi'])){
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Master</h6>
-                        <a class="collapse-item" href="index.php?p=anggota">Data Anggota</a>
-                        <a class="collapse-item" href="index.php?p=buku">Data Buku</a>
+                        <a class="collapse-item" href="pages/anggota.php">Data Anggota</a>
+                        <a class="collapse-item" href="pages/buku.php">Data Buku</a>
                     </div>
                 </div>
             </li>
@@ -99,8 +99,8 @@ if(isset($_SESSION['sesi'])){
                     data-parent="#accordionSidebar">
                      <div class="bg-white py-2 collapse-inner rounded">
                          <h6 class="collapse-header">Data Transaksi</h6>
-                         <a class="collapse-item" href="index.php?p=transaksi-peminjaman">Transaksi Peminjaman</a>
-                         <a class="collapse-item" href="index.php?p=transaksi-pengembalian">Transaksi Pengembalian</a>
+                         <a class="collapse-item" href="pages/peminjaman.php">Transaksi Peminjaman</a>
+                         <a class="collapse-item" href="pages/pengembalian.php">Transaksi Pengembalian</a>
                      </div>
                  </div>
              </li>           
@@ -115,7 +115,7 @@ if(isset($_SESSION['sesi'])){
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php?p=transaksi-peminjaman">
+                <a class="nav-link" href="pages/laporan.php">
                     <i class="fas fa-file"></i>
                     <span>Laporan Transaksi</span></a>
             </li>
@@ -145,7 +145,7 @@ if(isset($_SESSION['sesi'])){
                                 <div class="card-body">
                                     <div class="text-center">
                                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="img/undraw_posting_photo.svg" alt="...">
+                                            src="images/undraw_posting_photo.svg" alt="...">
                                     </div>
                                     <p>SIPUS (Sistem Informasi Perpustakaan) adalah sebuah website yang dapat difungsikan untuk mempermudah pengelolaan informasi yang secara pesat 
                                         menggantikan sistem konvensional menjadi digital dalam mengelola informasi Perpustakaan Umum.</p>
@@ -198,21 +198,6 @@ if(isset($_SESSION['sesi'])){
 
     </div>
     <!-- End of Page Wrapper -->
-<?php
-    $pages_dir='pages';
-    if(!empty($_GET['p'])){
-        $pages=scandir($pages_dir,0);
-        unset($pages[0],$pages[1]);
-        $p=$_GET['p'];
-        if(in_array($p.'.php',$pages)){
-            include($pages_dir.'/'.$p.'.php');
-        }else{
-            echo'Halaman Tidak Ditemukan';
-        }
-    }else{
-        include($pages_dir.'/beranda.php');
-    }
-?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
