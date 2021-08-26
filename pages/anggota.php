@@ -5,9 +5,21 @@ include'Koneksi.php';
 <div class="container-fluid">
     <div class="card mb-3">
         <div class="card-header">
+        <div class="row justify-content-between">
+            <div class="col-4">
             <i class="fas fa-table"></i> Data Anggota
             <a href="index.php?p=anggota-input" class="btn btn-sm btn-info">Tambah Anggota</a>
             <a target="_blank" href="pages/cetak.php" class="btn btn-lg btn-primary bx bx-printer"></a>
+            </div>
+            <div class="col-4">
+            <form class="d-flex" method="POST">
+                <form method="POST">
+                <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="pencarian">
+                <button class="btn btn-primary" type="submit" name="search" value="search" > Search</button>
+                </form>
+            </form>
+            </div>
+        </div>
         </div>
       </form>
         </div>
