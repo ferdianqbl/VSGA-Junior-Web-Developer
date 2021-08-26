@@ -38,7 +38,7 @@ include'koneksi.php';
                             <td><?=$data['tgl_pinjam'];?></td>
                             <td align="center">
                             <a href="index.php?p=peminjaman-edit&id=<?=$data['id_transaksi'];?>" class="btn btn-sm btn-warning">Edit</a>
-                            <a href="index.php?p=peminjaman-hapus&id=<?=$data['id_transaksi'];?>" onclick="return confirm('Yakin Menghapus anggota?');" class="btn btn-sm btn-danger">Hapus</a>
+                            <a href="index.php?p=peminjaman-hapus&id=<?=$data['id_transaksi'];?>" onclick="return confirm('Yakin Menghapus Data?');" class="btn btn-sm btn-danger">Hapus</a>
                             </td>
                         </tr>
                         <?php 
