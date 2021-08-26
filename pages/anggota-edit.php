@@ -30,7 +30,7 @@ if(empty($data['foto'])or($data['foto']=='-')){
                     <div class="col">
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto</label><br>
-                            <img class="mb-2" src="images/<?php echo $foto; ?>" width='70' height='75'>
+                            <img class="mb-2" src="images/<?php echo $foto; ?>" width='75' height='70'>
                             <input class="form-control" type="file" name="foto" id="foto">
                             <input type="hidden" name="foto_awal" value="<?php echo $data['foto']; ?>">
                         </div>
