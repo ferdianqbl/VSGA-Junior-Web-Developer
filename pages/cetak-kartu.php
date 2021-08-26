@@ -24,6 +24,6 @@ if(empty($data['foto']) or ($data['foto']=='-')){
 
 </head>
 <body>
-  
+  <h1>P</h1>
 </body>
 </html>
