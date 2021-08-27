@@ -1,10 +1,16 @@
 <?php 
     include 'Koneksi.php';
-    $sql    = "SELECT * FROM t_anggota ORDER BY id_anggota";
-    $sqli   = "SELECT * FROM t_buku ORDER BY id_buku";
+    $sql = "SELECT * FROM t_anggota ORDER BY id_anggota";
+    $sqli = "SELECT * FROM t_buku ORDER BY id_buku";
     $result = $db->query($sql);
     $result1 = $db->query($sqli);
-    
+
+    $selectidmax =mysqli_query($db, "SELECT max(id_transaksi) as maxid FROM t_transaksi WHERE id_transaksi LIKE 'TR%'");
+    $hslidmax=mysqli_fetch_array($selectidmax);
+    $idmax=$hslidmax['maxid'];
+    $nourut = (int) substr($idmax, 2,3);
+    $nourut++;
+    $IDbaru = "TR" . sprintf("%03s", $nourut);
 ?>
 <div class="container-fluid">
     <ol class="breadcrumb">
@@ -25,9 +31,13 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
+                            <label for="id">ID Transaksi</label>
+                            <input type="text" name="id" class="form-control" value="<?= $IDbaru; ?>" readonly required="required">
+                        </div>
+                        <div class="form-group">
                             <label>Anggota</label>
-                            <select name="anggota" class="form-control">
-                                <option selected>Pilih Data Anggota</option>
+                            <select name="anggota" class="form-control" required>
+                                <option value="" selected>Pilih Data Anggota</option>
                         <?php 
                             while ($list = mysqli_fetch_array($result)){ 
                         ?>
@@ -37,8 +47,8 @@
                         </div>
                         <div class="form-group">
                             <label>Buku</label>
-                            <select name="buku" class="form-control">
-                                <option selected>Pilih Data Anggota</option>
+                            <select name="buku" class="form-control" required>
+                                <option  value="" selected>Pilih Data Buku</option>
                         <?php 
                             while ($list1 = mysqli_fetch_array($result1)){ 
                         ?>
